@@ -1,6 +1,9 @@
 In this code, we are going to take this data.csv file, and run all types of machine learning models on it
 we are aiming for highest accuracy!
 
+
+Here's a barplot of the models and their performance:
+![Barplot](graph.png)
 All of the Things we will try
 - Linear Regression -> 30 models (0.368 seconds), Accuracy: 70.65%, Editing -> ex.ipynb || Number of features: 19
 - Polynomial Regression -> 30 models (0.948 seconds), Accuracy: 70.09%, Editing -> ex.ipynb (doesnt delete the columns linear did) || Number of features: 37
