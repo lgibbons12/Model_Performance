@@ -1,3 +1,4 @@
+#imports
 import pandas as pd
 from sklearn.linear_model import HuberRegressor, RANSACRegressor, TheilSenRegressor
 from sklearn.model_selection import train_test_split
@@ -6,6 +7,9 @@ import sklearn
 from sklearn.preprocessing import StandardScaler
 
 
+#there are some models that work better with outliers and some that don't
+#so we use two different csvs to handle both
+#we use data that only contains variables who have a linear relationship with the predictor
 small_outliers = pd.read_csv("ready_csvs/ready_for_linear.csv")
 big_outliers = pd.read_csv("ready_csvs/big_outliers_ready_for_robust.csv")
 
