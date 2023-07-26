@@ -1,0 +1,5 @@
+python_playarounds/
+__pycache__/
+venv/
+tree_stuff/
+tif_add/
