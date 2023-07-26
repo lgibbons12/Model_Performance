@@ -19,18 +19,25 @@ X = small_outliers.drop(columns="Mosquito")
 
 x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size = 0.1)
 
+
 best_theilsen = 0
 best_huber_small = 0
 
 for i in range(30):
+    #split and scale the data
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size = 0.1)
 
     ss = StandardScaler()
     x_train_scaled = ss.fit_transform(x_train)
     x_test_scaled = ss.transform(x_test)
+
+    #we make both models at the same time
+    #set the HuberRegressor to 1000 as that was the number that had a good accuracy without taking too long
     theilsen = TheilSenRegressor()
     huber = HuberRegressor(max_iter=1000)
 
+
+    #fit the data for both models and if they are better than the previous best, save the new model
     theilsen.fit(x_train_scaled, y_train)
     huber.fit(x_train_scaled, y_train)
 
@@ -61,6 +68,7 @@ best_ransac = 0
 best_huber_big = 0
 
 for i in range(30):
+    #same as big, split and scale, create models, fit them, update best if necessary
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size = 0.1)
 
     ransac = RANSACRegressor()
